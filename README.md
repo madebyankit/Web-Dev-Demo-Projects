@@ -57,7 +57,10 @@ Frontend applications built with React.
 - **To-Do**
   - Task manager with Redux Toolkit, featuring animations and filtering.
 
-- **Score-Keeper** (Basic)
+- **fancy-todo-list**
+  - Multi-list to-do manager with Material UI, custom icons, and IndexedDB persistence via Dexie + SWR.
+
+- **Score-Keeper**
   - Simple score-tracking app demonstrating React basics.
 
 ## Technologies Covered
