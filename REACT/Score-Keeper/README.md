@@ -28,7 +28,7 @@ A simple React application for keeping track of scores in multiplayer games. Bui
 1. Navigate to the project directory:
 
    ```bash
-   cd REACT/Basic/Score-Keeper
+   cd REACT/Score-Keeper
    ```
 
 2. Install dependencies:
