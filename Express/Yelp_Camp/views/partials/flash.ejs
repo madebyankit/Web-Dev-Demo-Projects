@@ -1,0 +1,20 @@
+<% if(success && success.length) {%> 
+<!-- if there is a success flash message, and success is an array (which it is, because that's how flash messages are stored), 
+and it has at least one element, then we display the first element of the success array as a flash message. 
+We can have multiple flash messages, but in this case we are only displaying the first one. -->
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= success %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<% } %>
+
+<% if(error && error.length) {%>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= error %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<% } %>
