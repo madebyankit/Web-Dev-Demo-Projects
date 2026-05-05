@@ -6,15 +6,16 @@ const initialGameBoard = [
   [null, null, null],
 ];
 
-export default function GameBoard() {
+export default function GameBoard( {onSelectSquare, activePlayerSymbol}) {
   const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
   function handleSquareClick(rowIndex, colIndex) { 
     setGameBoard((prevGameBoard) => {
       const newGameBoard = [...prevGameBoard.map(row => [...row])]; // Deep copy of the game board
-      newGameBoard[rowIndex][colIndex] = "X";
+      newGameBoard[rowIndex][colIndex] = activePlayerSymbol; // Update the clicked square with the active player's symbol
       return newGameBoard;
     });
+    onSelectSquare();
   } 
 
   return (
