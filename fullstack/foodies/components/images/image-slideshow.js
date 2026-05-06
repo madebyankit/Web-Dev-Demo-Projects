@@ -30,10 +30,10 @@ export default function ImageSlideshow() {
       setCurrentImageIndex((prevIndex) =>
         prevIndex < images.length - 1 ? prevIndex + 1 : 0
       );
-    }, 5000);
+    }, 5000); // Change image every 5 seconds
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []); 
 
   return (
     <div className={classes.slideshow}>
