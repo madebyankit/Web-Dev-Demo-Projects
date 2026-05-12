@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Foodies
+
+Foodies is a Next.js meal-sharing community built with SQLite. It lets users browse recipes, view meal details, and submit new meals with an image, summary, and recipe instructions.
+
+## Features
+
+- Browse shared meals on the home page
+- See full meal details and creator contact info
+- Share a new recipe through a submission form
+- Save recipe data in SQLite via `better-sqlite3`
+- Sanitize user input with `xss`
+- Generate URL-friendly slugs for meals
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cd fullstack/foodies
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project stores meals in `meals.db` and includes `initdb.js` to seed initial recipe data.
 
-## Learn More
+To initialize the database manually:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+node initdb.js
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` — Next.js app routes and pages
+- `lib/` — backend helpers for database access and form actions
+- `meals.db` — SQLite database used by the app
+- `public/` — static assets and uploaded meal images
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This app is a good example of a small full-stack Next.js project with server-side data handling and form submission support.
