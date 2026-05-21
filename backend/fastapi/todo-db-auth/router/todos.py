@@ -7,6 +7,8 @@ from database import SessionLocal
 from typing import Annotated
 from sqlalchemy.orm import Session
 
+from .auth import get_current_user
+
 router = APIRouter()
 
 def get_db():
@@ -25,6 +27,8 @@ def get_db():
 db_dependency = Annotated[Session, Depends(get_db)]
     # db:db_dependency is a parameter that indicates that the db variable is of type Session 
     # and is obtained from the get_db function using FastAPI's dependency injection system.
+user_dependency = Annotated[dict, Depends(get_current_user)]
+    # now user_dependency has info on user that the get_current_user provides
 
 
 class TodoRequest(BaseModel):
@@ -50,12 +54,19 @@ async def read_todo(db: db_dependency, todo_id: int = Path(gt=0)):
 
 
 @router.post("/todos/", status_code=status.HTTP_201_CREATED)
-async def create_todo(db: db_dependency, todo: TodoRequest):
+async def create_todo(user: user_dependency,
+                      db: db_dependency,
+                      todo: TodoRequest):
+    if user is None:
+        raise HTTPException(status_code=401, detail = "Authentication Failed")
     todo_model = Todos(
         title=todo.title,
         description=todo.description,
         priority=todo.priority,
-        completed=todo.completed
+        completed=todo.completed,
+        owner_id=user.get("id")
+        #user.get("id") is coming from that user object thingy
+        #user is AA pswd is AA for future use
     )
     db.add(todo_model)
     db.commit()
