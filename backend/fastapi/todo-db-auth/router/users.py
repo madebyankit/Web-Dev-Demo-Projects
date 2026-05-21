@@ -13,7 +13,7 @@ router = APIRouter(
     tags=['user']
 )
 
-
+# Database session dependency for user routes
 def get_db():
     db = SessionLocal()
     try:
@@ -21,19 +21,22 @@ def get_db():
     finally:
         db.close()
 
-
+# Inject current authenticated user and database session
+# get_current_user is reused from auth.py for JWT validation.
 db_dependency = Annotated[Session, Depends(get_db)]
 user_dependency = Annotated[dict, Depends(get_current_user)]
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
 
 class UserVerification(BaseModel):
+    # Request body for password update: current and new password
     password: str
     new_password: str = Field(min_length=6)
 
 
 @router.get('/', status_code=status.HTTP_200_OK)
 async def get_user(user: user_dependency, db: db_dependency):
+    # Return the authenticated user's record
     if user is None:
         raise HTTPException(status_code=401, detail='Authentication Failed')
     return db.query(Users).filter(Users.id == user.get('id')).first()
@@ -42,11 +45,13 @@ async def get_user(user: user_dependency, db: db_dependency):
 @router.put("/password", status_code=status.HTTP_204_NO_CONTENT)
 async def change_password(user: user_dependency, db: db_dependency,
                           user_verification: UserVerification):
-    #user_verification is coming from req body
+    # Update the current user's password after verifying the old one
+    # user_verification info is coming from req body and should match as defined by class above
     if user is None:
         raise HTTPException(status_code=401, detail='Authentication Failed')
     user_model = db.query(Users).filter(Users.id == user.get('id')).first()
 
+    # Confirm current password matches before changing it
     if not bcrypt_context.verify(user_verification.password, user_model.hashed_password):
         raise HTTPException(status_code=401, detail='Error on password change')
     user_model.hashed_password = bcrypt_context.hash(user_verification.new_password)
