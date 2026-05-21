@@ -3,15 +3,21 @@ from pydantic import BaseModel
 from starlette import status
 from passlib.context import CryptContext
 
+from models import Users
 from database import SessionLocal
 from typing import Annotated
 from sqlalchemy.orm import Session
+from datetime import timedelta, datetime, timezone
 
 from fastapi.security import OAuth2PasswordRequestForm
-
-from models import Users
+from jose import jwt
 
 router = APIRouter()
+
+SECRET_KEY = "b13f5431d3a117e2c41f7bb5f9e1ba118cd16edac13b2cad0b05e1bc6effcefe"
+ALGORITHM = "HS256"
+#this key can be anything, usually stored in .env, I generated it using terminal: openssl rand -hex 32
+
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 class CreateUserRequest(BaseModel):
@@ -21,6 +27,10 @@ class CreateUserRequest(BaseModel):
   last_name: str
   password: str
   role: str  
+
+class Token(BaseModel):
+	access_token: str
+	token_type: str
   
 def get_db():
     db = SessionLocal()
@@ -42,12 +52,23 @@ db_dependency = Annotated[Session, Depends(get_db)]
 
 def authenticate_user(username:str, password:str, db):
   #Utility Function that checks whether user exists or not, if does check password
+  #if authenticated return user, because we need this user info now to create JWT
   user = db.query(Users).filter(Users.username == username).first()
   if not user:
     return False
   if not bcrypt_context.verify(password, user.hashed_password):
     return False
-  return True
+  return user
+
+
+def create_access_token(username: str,
+                        user_id: int,
+                        expires_delta: timedelta):
+  #Utility to create JWT token
+  encode = {'sub': username, 'id': user_id}
+  expires = datetime.now(timezone.utc) + expires_delta
+  encode.update({'exp': expires})
+  return jwt.encode(encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
 @router.post("/auth/", status_code=status.HTTP_201_CREATED)
@@ -70,7 +91,7 @@ async def create_user(db:db_dependency,
   db.commit()
   return {"User Created Successfully" : create_user_model.username}
 
-@router.post("/token")
+@router.post("/token", response_model=Token)
 async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
                                  db: db_dependency):
   #just adding form_data: Annotated[...] now the route in swagger UI will take a lot more
@@ -78,4 +99,6 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
   user = authenticate_user(form_data.username, form_data.password, db)
   if not user:
     return "Failed Authenication"
-  return "Sucessful Authentication"
+  
+  token = create_access_token(user.username, user.id, timedelta(minutes=20))
+  return {"access_token": token, "token_type":"bearer"}
