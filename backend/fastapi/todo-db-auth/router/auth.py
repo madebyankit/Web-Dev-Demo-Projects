@@ -72,11 +72,12 @@ def authenticate_user(username:str, password:str, db):
 # Creates a signed JWT token containing user information
 def create_access_token(username: str,
                         user_id: int,
+                        role: str,
                         expires_delta: timedelta):
   # JWT payload - claims that will be encoded in the token
   # 'sub' = subject (standard claim, usually the username)
   # 'id' = custom claim to store user ID
-  encode = {'sub': username, 'id': user_id}
+  encode = {'sub': username, 'id': user_id, "role": role}
   # Calculate token expiration time
   expires = datetime.now(timezone.utc) + expires_delta
   # Add expiration claim ('exp') to the payload
@@ -146,6 +147,6 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
                                 detail='Could not validate user.')
   
   # Create a JWT token valid for 20 minutes
-  token = create_access_token(user.username, user.id, timedelta(minutes=20))
+  token = create_access_token(user.username, user.id, user.role, timedelta(minutes=20))
   # Return token in OAuth2 standard format (access_token and token_type)
   return {"access_token": token, "token_type":"bearer"}
