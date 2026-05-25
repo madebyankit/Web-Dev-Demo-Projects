@@ -40,7 +40,8 @@ class CreateUserRequest(BaseModel):
   first_name: str
   last_name: str
   password: str
-  role: str  
+  role: str
+  phone_number: str
 
 # Response model for login endpoint - returns the JWT token
 class Token(BaseModel):
@@ -126,7 +127,8 @@ async def create_user(db:db_dependency,
 		role=create_user_request.role,
 		# Hash the plaintext password using bcrypt before storing
 		hashed_password=bcrypt_context.hash(create_user_request.password),
-  	is_active=True  # New users are active by default
+  	is_active=True,  # New users are active by default
+		phone_number=create_user_request.phone_number
 	)
   # Add the new user to the database session
   db.add(create_user_model)
