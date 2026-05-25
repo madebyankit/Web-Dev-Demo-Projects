@@ -7,7 +7,7 @@ This folder contains the shared FastAPI workspace for both FastAPI example apps.
 From `backend/fastapi`:
 
 ```bash
-python3 -m venv venv
+python3.12 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
