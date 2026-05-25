@@ -13,6 +13,10 @@ models.Base.metadata.create_all(bind=engine)
 # In this case, it uses the engine that was created in the database.py file, 
 # which is connected to the SQLite database specified in the SQLALCHEMY_DATABASE_URL variable.
 
+@app.get("/healthy")
+def health_check():
+    return {'status': 'Healthy'}
+
 app.include_router(auth.router)
 app.include_router(todos.router)
 app.include_router(admin.router)
