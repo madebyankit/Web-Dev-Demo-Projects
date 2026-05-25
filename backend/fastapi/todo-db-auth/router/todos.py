@@ -37,7 +37,7 @@ class TodoRequest(BaseModel):
     title: str = Field(min_length=3, max_length=100)
     description: str = Field(min_length=3, max_length=200)
     priority: int = Field(ge=1, le=5)
-    completed: bool = False
+    complete: bool = False
 
 
 @router.get("/")
@@ -75,7 +75,7 @@ async def create_todo(user: user_dependency,
         title=todo.title,
         description=todo.description,
         priority=todo.priority,
-        completed=todo.completed,
+        complete=todo.complete,
         owner_id=user.get("id")
         #user.get("id") is coming from that user object thingy
         #user is AA pswd is AA for future use
@@ -106,7 +106,7 @@ async def update_todo(user:user_dependency,
     todo_model.title = todo.title
     todo_model.description = todo.description
     todo_model.priority = todo.priority
-    todo_model.completed = todo.completed
+    todo_model.complete = todo.complete
     
     db.add(todo_model)
     db.commit()

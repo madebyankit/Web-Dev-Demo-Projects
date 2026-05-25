@@ -1,4 +1,5 @@
-#user is AA pswd is AA for future use
+#admin user is AA pswd is AA for future use
+#normal user is AB pswd is AB
 
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel

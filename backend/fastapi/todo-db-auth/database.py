@@ -2,11 +2,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker	
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_todosapp.db"
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:anks1999@localhost/TodoApplicationDatabase"
 
-engine = create_engine(
-		SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
+# engine = create_engine(
+# 		SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+# )
+# connect_args only neeeded for sqlite3
+
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+
 # "check_same_thread": It allows the SQLite database to be accessed from multiple threads. 
 # By default, SQLite does not allow multiple threads to access the same database connection, 
 # which can lead to issues in a multi-threaded application. 
