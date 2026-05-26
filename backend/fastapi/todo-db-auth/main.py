@@ -16,7 +16,12 @@ Base.metadata.create_all(bind=engine)
 # In this case, it uses the engine that was created in the database.py file, 
 # which is connected to the SQLite database specified in the SQLALCHEMY_DATABASE_URL variable.
 
-app.mount("/static", StaticFiles(directory="todo-db-auth/static"), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# app.mount("/static", StaticFiles(directory="todo-db-auth/static"), name="static")
+# path is important, first path when venv is inside fastapi and uvicorn running from inside todo-db-auth already
+# if uvicorn running from fastapi then use this commented path, same goes for other relative path depending on where we run server from
+# we may need to update paths
 
 
 @app.get("/")

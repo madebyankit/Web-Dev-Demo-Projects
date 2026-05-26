@@ -61,7 +61,7 @@ def get_db():
 # Type annotation for database dependency - tells FastAPI to inject DB session via get_db()
 db_dependency = Annotated[Session, Depends(get_db)]
 
-templates = Jinja2Templates(directory="todo-db-auth/templates")
+templates = Jinja2Templates(directory="templates")
 
 
 ### Pages ###
