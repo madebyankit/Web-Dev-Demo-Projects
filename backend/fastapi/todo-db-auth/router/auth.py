@@ -1,7 +1,7 @@
 #admin user is AA pswd is AA for future use
 #normal user is AB pswd is AB
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel
 from starlette import status
 from passlib.context import CryptContext
@@ -16,6 +16,9 @@ from datetime import timedelta, datetime, timezone
 
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError
+
+from fastapi.templating import Jinja2Templates
+
 
 router = APIRouter(
 	prefix = "/auth",  # All routes in this file will start with /auth
@@ -57,6 +60,21 @@ def get_db():
 
 # Type annotation for database dependency - tells FastAPI to inject DB session via get_db()
 db_dependency = Annotated[Session, Depends(get_db)]
+
+templates = Jinja2Templates(directory="todo-db-auth/templates")
+
+
+### Pages ###
+
+@router.get("/login-page")
+def render_login_page(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+@router.get("/register-page")
+def render_register_page(request: Request):
+    return templates.TemplateResponse("register.html", {"request": request})
+
+### Endpoints ###
 
 
 # Verifies username and password during login
