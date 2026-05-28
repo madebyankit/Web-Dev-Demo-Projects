@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-export default function QuestionTimer({ timeout, onTimeout }) {
+export default function QuestionTimer({ timeout, onTimeout, mode }) {
   const [remainingTime, setRemainingTime] = useState(timeout);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      onTimeout();
-    }, timeout);
+    console.log('SETTING TIMEOUT');
+    const timer = setTimeout(onTimeout, timeout);
 
     return () => {
       clearTimeout(timer);
@@ -14,6 +13,7 @@ export default function QuestionTimer({ timeout, onTimeout }) {
   }, [timeout, onTimeout]);
 
   useEffect(() => {
+    console.log('SETTING INTERVAL');
     const interval = setInterval(() => {
       setRemainingTime((prevRemainingTime) => prevRemainingTime - 100);
     }, 100);
@@ -23,27 +23,12 @@ export default function QuestionTimer({ timeout, onTimeout }) {
     };
   }, []);
 
-  return <progress id="question-time" max={timeout} value={remainingTime} />;
+  return (
+    <progress
+      id="question-time"
+      max={timeout}
+      value={remainingTime}
+      className={mode}
+    />
+  );
 }
-
-// If useEffect depends on a function or objects which are stored differently from variables:
-//
-// useEffect(..., [someFunction])
-//
-// and inside effect we update state:
-//
-// setState(...)
-//
-//
-// Then:
-//
-// state update
-// -> component re-renders
-// -> function gets recreated in memory
-// -> dependency looks changed
-// -> useEffect runs again
-// -> state updates again
-//
-// This can accidentally create infinite render loops.
-
-// A workaround this is to wrap functions that work on state in useCallback.
