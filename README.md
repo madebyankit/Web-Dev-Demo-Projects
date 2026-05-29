@@ -19,8 +19,8 @@ Backend applications with Express.js, MongoDB, and FastAPI.
 - **FastAPI**
   - **books-api**
     - FastAPI book collection API with filterable routes and JSON create/update/delete operations.
-  - **database&auth**
-    - Minimal FastAPI starter app with a root endpoint, ready to extend for database and authentication demos.
+  - **todo-db-auth**
+    - Database-backed to-do app with JWT authentication, protected user routes, admin routes, Jinja pages, PostgreSQL, Alembic, and tests.
 
 ### Frontend
 
@@ -35,11 +35,11 @@ Frontend applications and static templates.
     - Simple photo gallery using Bootstrap's grid system.
 
 - **CSS**
-  - **CSS*GRID*(Nexter Project)**
+  - **CSS_GRID_(Nexter Project)**
     - Real estate site showcasing CSS Grid layouts.
-  - **FLEXBOX\_(Trillo Project)**
+  - **FLEXBOX_(Trillo Project)**
     - Hotel booking interface using CSS Flexbox.
-  - **SASS*Animations_FloatLayout*(Natours project)**
+  - **SASS_Animations_FloatLayout_(Natours project)**
     - Tour company landing page with SASS and CSS animations.
 
 - **React**
@@ -49,6 +49,8 @@ Frontend applications and static templates.
     - Financial growth calculator that projects future value using initial investment, annual contributions, expected return, and duration.
   - **Photo Search**
     - Image search app using Unsplash API and Axios, with responsive masonry grid.
+  - **quiz**
+    - Timed React quiz app with answer feedback, automatic skips, and a final score summary.
   - **Score-Keeper**
     - Simple score-tracking app demonstrating React basics.
   - **Tic-Tac-Toe**
@@ -62,8 +64,13 @@ Full-stack applications combining frontend and backend.
 
 - **foodies**
   - Recipe sharing community built with Next.js and SQLite, featuring meal browsing, recipe submission, and image upload.
-- **yelp-camp-react**
-  - Campground review site built with React frontend and Express/MongoDB backend.
+
+### In Progress
+
+Experimental or unfinished projects.
+
+- **inProgress/yelp-camp-react**
+  - Work-in-progress React version of the YelpCamp campground review app.
 
 ### Resources
 
@@ -78,9 +85,9 @@ Quick reference materials and cheatsheets.
 ## Technologies Covered
 
 - **Frontend**: React, Redux Toolkit, Axios, Framer Motion, Bootstrap, CSS, SASS, Next.js
-- **Backend**: Express.js, MongoDB, Mongoose, FastAPI, Python, SQLite
+- **Backend**: Express.js, MongoDB, Mongoose, FastAPI, Python, PostgreSQL, SQLite
 - **Styling**: CSS, SASS, Bootstrap, Material UI
-- **Tools**: Node.js, npm, Vite, live-server, uvicorn
+- **Tools**: Node.js, npm, Vite, live-server, uvicorn, Alembic, Pytest
 
 ## Getting Started
 
@@ -88,7 +95,8 @@ Each project has its own setup. Generally:
 
 1. Go to the project folder
 2. Run `npm install` (if package.json exists)
-3. Run `npm start` or open index.html
+3. Run the script listed in that project's README, commonly `npm run dev`, `npm start`, or `node index.js`
+4. For FastAPI projects, create the shared virtual environment in `backend/fastapi` and run `uvicorn main:app --reload` from the app folder
 
 Check individual project READMEs for details.
 
@@ -103,7 +111,7 @@ Web-Dev-Demo-Projects/
 │   │   └── yelp-camp/
 │   └── fastapi/
 │       ├── books-api/
-│       └── database&auth/
+│       └── todo-db-auth/
 ├── frontend/
 │   ├── bootstrap/
 │   │   ├── Candy_Museum/
@@ -117,11 +125,13 @@ Web-Dev-Demo-Projects/
 │       ├── fancy-todo-list/
 │       ├── Investment-Calculator/
 │       ├── Photo Search/
+│       ├── quiz/
 │       ├── Score-Keeper/
 │       ├── Tic-Tac-Toe/
 │       └── To-Do/
 ├── fullstack/
-│   ├── foodies/
+│   └── foodies/
+├── inProgress/
 │   └── yelp-camp-react/
 ├── resources/
 │   └── cheatsheets/

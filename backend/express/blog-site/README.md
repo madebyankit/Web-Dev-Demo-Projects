@@ -33,11 +33,10 @@ A full-stack blog application built with Express.js, MongoDB, and EJS templating
 
 ### Installation
 
-1. Clone the repository:
+1. Navigate to the project directory:
 
    ```bash
-   git clone <repository-url>
-   cd blog-site-restful-routing
+   cd backend/express/blog-site
    ```
 
 2. Install dependencies:
@@ -130,7 +129,7 @@ The application uses Semantic UI for a clean, professional look with:
 4. Test thoroughly
 5. Submit a pull request
 
-## License
+## Notes
 
-This project is licensed under the MIT License.</content>
-<parameter name="filePath">/Users/ankitdabas/Learn/Web-Dev-Demo-Projects/Express/Blog_Site(RESTful Routing)/README.md
+- The app connects to a local MongoDB database.
+- `package.json` does not define a start script, so run the app with `node app.js`.

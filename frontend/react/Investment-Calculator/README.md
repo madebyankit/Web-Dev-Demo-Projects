@@ -40,7 +40,7 @@ The app uses a helper function to calculate investment growth each year:
 ### Installation
 
 ```bash
-cd REACT/Investment-Calculator
+cd frontend/react/Investment-Calculator
 npm install
 npm run dev
 ```

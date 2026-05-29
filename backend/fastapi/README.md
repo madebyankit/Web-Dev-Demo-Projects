@@ -32,7 +32,7 @@ uvicorn main:app --reload
 or:
 
 ```bash
-cd database&auth
+cd todo-db-auth
 uvicorn main:app --reload
 ```
 
@@ -62,13 +62,17 @@ A simple FastAPI book management API that demonstrates:
 - in-memory create/read/update/delete operations
 - filtering by category and author
 
-### database&auth
+### todo-db-auth
 
-A minimal FastAPI starter app with a simple root endpoint. It is intended as a foundation for adding:
+A database-backed FastAPI to-do application that demonstrates:
 
-- database models
-- authentication and authorization
-- more advanced request handling
+- SQLAlchemy models and sessions
+- PostgreSQL database integration
+- JWT authentication and password hashing
+- protected user routes
+- admin-only routes
+- Jinja2-rendered pages
+- Pytest route tests with dependency overrides
 
 ## Dependencies
 
@@ -79,3 +83,4 @@ All Python dependencies are stored in `requirements.txt` at the root of this fol
 - No separate `requirements.txt` is needed inside each subproject.
 - Use the shared virtual environment located at `backend/fastapi/venv`.
 - Run each app from its subfolder to keep import paths simple.
+- See `todo-db-auth/README.md` for PostgreSQL setup, migrations, and testing notes.

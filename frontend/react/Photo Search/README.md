@@ -27,11 +27,10 @@ A React application that allows users to search for high-quality photos using th
 
 ### Installation
 
-1. Clone the repository:
+1. Navigate to the project directory:
 
    ```bash
-   git clone <repository-url>
-   cd photo-search-app
+   cd "frontend/react/Photo Search"
    ```
 
 2. Install dependencies:
@@ -114,12 +113,7 @@ The search bar uses Semantic UI form components for a polished, accessible inter
 4. Test thoroughly
 5. Submit a pull request
 
-## License
-
-This project is licensed under the MIT License.
-
 ## Acknowledgments
 
 - [Unsplash](https://unsplash.com/) for providing the photo API
-- [Semantic UI](https://semantic-ui.com/) for the UI framework</content>
-  <parameter name="filePath">/Users/ankitdabas/Learn/Web-Dev-Demo-Projects/REACT/Photo Search/README.md
+- [Semantic UI](https://semantic-ui.com/) for the UI framework

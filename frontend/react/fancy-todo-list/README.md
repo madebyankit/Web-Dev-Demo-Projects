@@ -34,7 +34,7 @@ A modern to-do list manager built with React, Material UI, and IndexedDB for per
 1. Navigate to the project directory:
 
    ```bash
-   cd REACT/fancy-todo-list
+   cd frontend/react/fancy-todo-list
    ```
 
 2. Install dependencies:

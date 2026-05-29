@@ -54,10 +54,9 @@ YelpCamp is a full-stack web application that allows users to discover, create, 
 
 ## ⚙️ Installation & Setup
 
-### 1. Clone the repository
+### 1. Navigate to the project directory
 ```
-git clone https://github.com/yelloworld-code/Yelp_Camp.git
-cd Yelp_Camp
+cd backend/express/yelp-camp
 ```
 
 ### 2. Install dependencies
@@ -82,7 +81,7 @@ SECRET=session_secret
 
 ### ▶️ Run the app
 ```
-node app.js
+npm start
 ```
 
 Visit:

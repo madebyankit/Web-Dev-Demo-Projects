@@ -30,7 +30,7 @@ A simple React game built with Vite. Players take turns marking squares on a 3x3
 ### Installation
 
 ```bash
-cd REACT/Tic-Tac-Toe
+cd frontend/react/Tic-Tac-Toe
 npm install
 npm run dev
 ```

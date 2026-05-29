@@ -29,11 +29,10 @@ A modern, animated To-Do application built with React, Redux Toolkit, and Framer
 
 ### Installation
 
-1. Clone the repository:
+1. Navigate to the project directory:
 
    ```bash
-   git clone <repository-url>
-   cd todo-app
+   cd frontend/react/To-Do
    ```
 
 2. Install dependencies:
@@ -118,26 +117,6 @@ The app features:
 4. Test thoroughly
 5. Submit a pull request
 
-## License
+## Notes
 
-This project is licensed under the MIT License.
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This app was created with Create React App, so it uses `npm start` for local development instead of Vite's `npm run dev`.
