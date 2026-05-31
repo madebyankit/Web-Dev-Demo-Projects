@@ -26,36 +26,24 @@ Backend applications with Express.js, MongoDB, and FastAPI.
 
 Frontend applications and static templates.
 
-- **Bootstrap**
-  - **Candy_Museum**
-    - A themed website for a candy museum using Bootstrap components.
-  - **Dating_Site_Homepage**
-    - Homepage design for a dating site showcasing Bootstrap layouts.
-  - **Image_Gallery**
-    - Simple photo gallery using Bootstrap's grid system.
-
 - **CSS**
-  - **CSS_GRID_(Nexter Project)**
+  - **css-grid-nexter**
     - Real estate site showcasing CSS Grid layouts.
-  - **FLEXBOX_(Trillo Project)**
+  - **flexbox-trillo**
     - Hotel booking interface using CSS Flexbox.
-  - **SASS_Animations_FloatLayout_(Natours project)**
+  - **sass-animations-float-layout-natours**
     - Tour company landing page with SASS and CSS animations.
 
 - **React**
   - **fancy-todo-list**
     - Multi-list to-do manager with Material UI, custom icons, and IndexedDB persistence via Dexie + SWR.
-  - **Investment-Calculator**
-    - Financial growth calculator that projects future value using initial investment, annual contributions, expected return, and duration.
-  - **Photo Search**
-    - Image search app using Unsplash API and Axios, with responsive masonry grid.
+  - **food-order**
+    - Food ordering app with a Vite React frontend, cart and checkout modals, custom HTTP hook, and local Express API for meals and orders.
   - **quiz**
     - Timed React quiz app with answer feedback, automatic skips, and a final score summary.
-  - **Score-Keeper**
-    - Simple score-tracking app demonstrating React basics.
-  - **Tic-Tac-Toe**
+  - **tic-tac-toe**
     - Classic two-player board game with turn-based play, win/draw detection, editable player names, and reset functionality.
-  - **To-Do**
+  - **to-do**
     - Task manager with Redux Toolkit, featuring animations and filtering.
 
 ### Fullstack
@@ -69,7 +57,7 @@ Full-stack applications combining frontend and backend.
 
 Experimental or unfinished projects.
 
-- **inProgress/yelp-camp-react**
+- **in-progress/yelp-camp-react**
   - Work-in-progress React version of the YelpCamp campground review app.
 
 ### Resources
@@ -84,9 +72,9 @@ Quick reference materials and cheatsheets.
 
 ## Technologies Covered
 
-- **Frontend**: React, Redux Toolkit, Axios, Framer Motion, Bootstrap, CSS, SASS, Next.js
+- **Frontend**: React, Redux Toolkit, Framer Motion, CSS, SASS, Next.js
 - **Backend**: Express.js, MongoDB, Mongoose, FastAPI, Python, PostgreSQL, SQLite
-- **Styling**: CSS, SASS, Bootstrap, Material UI
+- **Styling**: CSS, SASS, Material UI
 - **Tools**: Node.js, npm, Vite, live-server, uvicorn, Alembic, Pytest
 
 ## Getting Started
@@ -113,30 +101,24 @@ Web-Dev-Demo-Projects/
 │       ├── books-api/
 │       └── todo-db-auth/
 ├── frontend/
-│   ├── bootstrap/
-│   │   ├── Candy_Museum/
-│   │   ├── Dating_Site_Homepage/
-│   │   └── Image_Gallery/
 │   ├── css/
-│   │   ├── CSS_GRID_(Nexter Project)/
-│   │   ├── FLEXBOX_(Trillo Project)/
-│   │   └── SASS_Animations_FloatLayout_(Natours project)/
+│   │   ├── css-grid-nexter/
+│   │   ├── flexbox-trillo/
+│   │   └── sass-animations-float-layout-natours/
 │   └── react/
 │       ├── fancy-todo-list/
-│       ├── Investment-Calculator/
-│       ├── Photo Search/
+│       ├── food-order/
 │       ├── quiz/
-│       ├── Score-Keeper/
-│       ├── Tic-Tac-Toe/
-│       └── To-Do/
+│       ├── tic-tac-toe/
+│       └── to-do/
 ├── fullstack/
 │   └── foodies/
-├── inProgress/
+├── in-progress/
 │   └── yelp-camp-react/
 ├── resources/
 │   └── cheatsheets/
-│       ├── hint.css/
-│       └── React.js/
+│       ├── React.js
+│       └── hint.css
 └── README.md
 ```
 
