@@ -57,9 +57,6 @@ Full-stack applications combining frontend and backend.
 
 Experimental or unfinished projects.
 
-- **in-progress/yelp-camp-react**
-  - Work-in-progress React version of the YelpCamp campground review app.
-
 ### Resources
 
 Quick reference materials and cheatsheets.
